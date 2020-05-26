@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="873.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotelmanagementsystem.R3ConfirmController">
+   <children>
+      <VBox layoutX="167.0" layoutY="55.0" prefHeight="684.0" prefWidth="149.0" spacing="30.0">
+         <children>
+            <Label text="Name:" />
+            <Label text="Birthday" />
+            <Label text="Address" />
+            <Label text="Phone" />
+            <Label text="Gender" />
+            <Label text="Branch" />
+            <Label text="Room Type" />
+            <Label prefHeight="21.0" prefWidth="126.0" text="Children Included" />
+            <Label text="Breakfast" />
+            <Label text="Activity" />
+            <Label text="Number of Day" />
+            <Label text="Room Number" />
+            <Label text="Number of Guest" />
+            <Label text="Payment Method" />
+         </children>
+      </VBox>
+      <VBox layoutX="367.0" layoutY="55.0" prefHeight="684.0" prefWidth="304.0" spacing="30.0">
+         <children>
+            <Label fx:id="name" text="Label" />
+            <Label fx:id="birthday" text="Label" />
+            <Label fx:id="address" text="Label" />
+            <Label fx:id="phone" text="Label" />
+            <Label fx:id="gender" text="Label" />
+            <Label fx:id="branch" text="Label" />
+            <Label fx:id="Room" text="Label" />
+            <Label fx:id="children" text="Label" />
+            <Label fx:id="Breakfast" text="Label" />
+            <Label fx:id="activtty" text="Label" />
+            <Label fx:id="numberday" text="Label" />
+            <Label fx:id="roomnuber" text="Label" />
+            <Label fx:id="numgust" text="Label" />
+            <ComboBox fx:id="method" prefHeight="31.0" prefWidth="224.0" />
+         </children>
+      </VBox>
+      <Button fx:id="Save" layoutX="167.0" layoutY="793.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="313.0" text="Save" />
+      <Button fx:id="cancel" layoutX="516.0" layoutY="793.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="86.0" text="Cancel" />
+      <Label layoutX="148.0" layoutY="6.0" text="Confirm Guest Information" textFill="#150ee1">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutX="-1.0" layoutY="3.0" prefHeight="161.0" prefWidth="149.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../bac.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</Pane>

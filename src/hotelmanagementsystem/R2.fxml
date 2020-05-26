@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="788.0" prefWidth="750.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotelmanagementsystem.R2Controller">
+   <children>
+      <VBox alignment="CENTER" layoutX="163.0" layoutY="97.0" prefHeight="101.0" prefWidth="89.0" spacing="40.0">
+         <children>
+            <Label text="Branch" />
+            <Label text="Room Type" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="163.0" layoutY="454.0" prefHeight="150.0" prefWidth="138.0" spacing="40.0">
+         <children>
+            <Label text="Number Of Day" />
+            <Label text="Number Of Guest" />
+            <Label text="check In" />
+         </children>
+      </VBox>
+      <VBox layoutX="338.0" layoutY="97.0" prefHeight="101.0" prefWidth="146.0" spacing="30.0">
+         <children>
+            <ComboBox fx:id="Branch" prefWidth="150.0" />
+            <ComboBox fx:id="Roomtypy" prefWidth="150.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="338.0" layoutY="436.0" prefHeight="200.0" prefWidth="146.0" spacing="38.0">
+         <children>
+            <Spinner fx:id="Numberday" />
+            <Spinner fx:id="Numbergust" />
+            <DatePicker fx:id="date" />
+         </children>
+      </VBox>
+      <VBox layoutX="332.0" layoutY="211.0" prefHeight="200.0" prefWidth="250.0" spacing="40.0">
+         <children>
+            <RadioButton fx:id="RB1" mnemonicParsing="false" text="With Children" />
+            <RadioButton fx:id="RB2" mnemonicParsing="false" text="With Breakfast" />
+            <RadioButton fx:id="RB3" mnemonicParsing="false" text="From 1:00pm - 5:00pm activities" />
+            <RadioButton fx:id="RB4" mnemonicParsing="false" text="From 7:00pm - 1:00am activities" />
+         </children>
+      </VBox>
+      <Label layoutX="232.0" layoutY="40.0" text="Confirm Guest Information" textFill="#0e0be8">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="Reserve" layoutX="201.0" layoutY="677.0" mnemonicParsing="false" onAction="#Reserveb" prefHeight="31.0" prefWidth="393.0" text="Reserve">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
