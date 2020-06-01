@@ -59,11 +59,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Id: "
-                + Id + "withchildren : " + withchildren + "branch: " + branch + "checkin: " + checkin + "checkout: " + checkout + "\n numberroom: " + numberroom
-                + "\nnumberguest: "
-                + numberguest + "\numberday: " + numberday + "\roomnumber: " + roomnumber + "\nbreakfast " + breakfast + "activity " + activity;
-
+        return "Reservation{" + "Id=" + Id + ", withchildren=" + withchildren + ", branch=" + branch + ", checkin=" + checkin + ", checkout=" + checkout + ", numberroom=" + numberroom + ", numberguest=" + numberguest + ", numberday=" + numberday + ", roomnumber=" + roomnumber + ", breakfast=" + breakfast + ", activity=" + activity + ", roomType=" + roomType + '}';
     }
 
 }

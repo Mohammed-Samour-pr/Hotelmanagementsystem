@@ -19,4 +19,10 @@ public class Adress {
         this.address = address;
 
     }
+
+    @Override
+    public String toString() {
+        return "Adress{" + "addressId=" + addressId + ", address=" + address + ", guestId=" + guestId + '}';
+    }
+
 }

@@ -245,7 +245,9 @@ public class R3ConfirmController implements Initializable {
             pst.setString(4, method);
             pst.setInt(5, reserveId);
             pst.execute();
+
         } catch (SQLException s) {
+            System.out.println(s);
         }
 
     }

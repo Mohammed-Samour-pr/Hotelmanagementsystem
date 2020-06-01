@@ -116,8 +116,8 @@ public class Guest {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nGuest Id: " + id + "\nPhone: " + phone + "\nAddress: " + address + "\nBbirthday: " + birthday;
-
+        return "Guest{" + "b=" + b + ", id=" + id + ", ID=" + ID + ", gender=" + gender + ", name=" + name + ", phone=" + phone + ", address=" + address + ", birthday=" + birthday + ", PhoneNumber=" + PhoneNumber + ", Birthdate=" + Birthdate + '}';
     }
+
 
 }

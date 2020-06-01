@@ -27,4 +27,9 @@ public class Bill {
         this.paymanetMethod = paymanetMethod;
     }
 
+    @Override
+    public String toString() {
+        return "Bill{" + "billNumber=" + billNumber + ", totalPrice=" + totalPrice + ", date=" + date + ", discount=" + discount + ", paymanetMethod=" + paymanetMethod + '}';
+    }
+
 }

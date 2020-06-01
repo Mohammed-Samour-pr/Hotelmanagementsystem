@@ -86,6 +86,7 @@ public class R1Controller implements Initializable {
             }
         } else {
             FileO.alert("Please complete all fields");
+            System.out.println("***********");
         }
 
     }

@@ -53,7 +53,7 @@ public class Manger2Controller implements Initializable {
             appStage.setScene(scene);
             appStage.show();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+        
         }
     }
 

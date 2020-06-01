@@ -26,4 +26,9 @@ public class Room {
         this.reserveId = reserveId;
     }
 
+    @Override
+    public String toString() {
+        return "Room{" + "RoomNumber=" + RoomNumber + ", RoomType=" + RoomType + ", price=" + price + ", description=" + description + ", rate=" + rate + ", reserveId=" + reserveId + '}';
+    }
+
 }
