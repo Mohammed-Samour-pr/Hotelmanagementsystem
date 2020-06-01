@@ -16,8 +16,6 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +24,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,17 +37,17 @@ import javax.swing.JOptionPane;
  *
  * @author Mohammed2
  */
-public class Show_guestsController implements Initializable {
+public class Show_EmpController implements Initializable {
 
     @FXML
-    private TableColumn<Guest, Integer> tcid;
+    private TableColumn<Employee, Integer> tcid;
     @FXML
-    private TableColumn<Guest, String> tcname;
+    private TableColumn<Employee, String> tcname;
 
     @FXML
-    private TableColumn<Guest, String> tcaddress;
+    private TableColumn<Employee, String> tcaddress;
     @FXML
-    private TableColumn<Guest, String> tcgender;
+    private TableColumn<Employee, String> tcgender;
 
     @FXML
     private Button previous;
@@ -75,14 +72,14 @@ public class Show_guestsController implements Initializable {
     @FXML
     private Button Refresh;
     @FXML
-    private TableView<Guest> Tabelview;
+    private TableView<Employee> Tabelview;
     db d = new db();
     Statement statement = null;
     ResultSet rs = null;
     @FXML
-    private TableColumn<Guest, Integer> ph;
+    private TableColumn<Employee, Integer> ph;
     @FXML
-    private TableColumn<Guest, String> brit;
+    private TableColumn<Employee, String> brit;
     static Connection conn;
     PreparedStatement pst = null;
     @FXML
@@ -106,24 +103,25 @@ public class Show_guestsController implements Initializable {
         }
 
         tcid.setCellValueFactory(new PropertyValueFactory("ID"));
-        tcname.setCellValueFactory(new PropertyValueFactory("Name"));
+        tcname.setCellValueFactory(new PropertyValueFactory("UserName"));
         ph.setCellValueFactory(new PropertyValueFactory("PhoneNumber"));
-        tcaddress.setCellValueFactory(new PropertyValueFactory("Address"));
-        tcgender.setCellValueFactory(new PropertyValueFactory("Gender"));
+        tcaddress.setCellValueFactory(new PropertyValueFactory("Password"));
+        tcgender.setCellValueFactory(new PropertyValueFactory("WORKHOURS"));
         brit.setCellValueFactory(new PropertyValueFactory("Birthdate"));
         try {
             try {
-                rs = statement.executeQuery("select * from Guest");
+                rs = statement.executeQuery("select * from EMPLOYEE");
                 while (rs.next()) {
-                    Guest guest = new Guest();
-                    String adf = String.valueOf(rs.getInt("ID"));
-                    guest.setID(adf);
-                    guest.setName(rs.getString("Name"));
-                    guest.setBirthdate(rs.getString("Birthdate"));
-                    guest.setAddress(rs.getString("Address"));
-                    guest.setGender(rs.getString("Gender"));
-                    guest.setPhoneNumber(rs.getString("PhoneNumber"));
-                    Tabelview.getItems().add(guest);
+                    Employee e = new Employee();
+                    String adf = String.valueOf(rs.getInt("E_ID"));
+                    e.setID(adf);
+                    e.setUserName(rs.getString("UserName"));
+                    e.setBirthdate(rs.getString("BIRTHDAY"));
+                    e.setPassword(rs.getString("Password"));
+                    e.setWORKHOURS(rs.getInt("WORKHOURS"));
+                    e.setPhoneNumber(rs.getString("PHONENUMBER"));
+                    Tabelview.getItems().add(e);
+                    System.out.println(e.toString());
                 }
             } catch (SQLException ex) {
                 System.out.println("1-" + ex.getMessage());
@@ -134,11 +132,6 @@ public class Show_guestsController implements Initializable {
         Tabelview.getSelectionModel().selectedItemProperty().addListener(
                 event -> showSelected()
         );
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss a");
-        String formattedDate = myDateObj.format(myFormatObj);
-        NameE.setText(Employee.Ename);
-        Time.setText(formattedDate);
 
     }
 
@@ -164,7 +157,7 @@ public class Show_guestsController implements Initializable {
             String gender = gendertxt.getText();
             String Address = addresstxt.getText();
             Guest newGuest = GlobalVariable.guest;
-            String sql = "INSERT INTO Guest(Name , Address ,PhoneNumber ,Birthdate ,Gender ) values (?,?,?,?,?)";
+            String sql = "INSERT INTO EMPLOYEE(Password , BIRTHDAY ,UserName ,PHONENUMBER ,WORKHOURS ) values (?,?,?,?,?)";
             FileO.PrintFile(sql);
             pst = conn.prepareStatement(sql);
             pst.setString(1, name);
@@ -189,8 +182,10 @@ public class Show_guestsController implements Initializable {
         String bert = Birthtxt.getText();
         String gender = gendertxt.getText();
         String Address = addresstxt.getText();
-        String sql = "update Guest set Name='" + name + "', Address='" + Address + "', PhoneNumber='" + ph + "',Birthdate='" + bert + "',Gender='" + gender
-                + "' where id='" + id + "' ";
+
+        String sql = "update EMPLOYEE set UserName='" + name + "', PHONENUMBER='" + Address + "', Password='" + ph + "',BIRTHDAY='" + bert + "',WORKHOURS"
+                + "='" + gender
+                + "' where E_ID='" + id + "' ";
         FileO.PrintFile(sql);
         this.statement.executeUpdate(sql);
         Tabelview.getItems().clear();
@@ -200,7 +195,7 @@ public class Show_guestsController implements Initializable {
     @FXML
     private void Delete(ActionEvent event) throws SQLException, IOException {
         Integer id = Integer.parseInt(idtxt.getText());
-        String sql = "Delete from Guest where id=" + id;
+        String sql = "Delete from EMPLOYEE where E_ID=" + id;
         FileO.PrintFile(sql);
         this.statement.executeUpdate(sql);
         Tabelview.getItems().clear();
@@ -222,13 +217,13 @@ public class Show_guestsController implements Initializable {
     }
 
     private void showSelected() {
-        Guest g = Tabelview.getSelectionModel().getSelectedItem();
+        Employee g = Tabelview.getSelectionModel().getSelectedItem();
         if (g != null) {
             idtxt.setText(g.getID());
-            nametxt.setText(g.getName());
+            nametxt.setText(g.getUserName());
             phonetxt.setText(g.getPhoneNumber());
-            addresstxt.setText(g.getAddress());
-            gendertxt.setText(g.getGender());
+            addresstxt.setText(g.getPassword());
+            gendertxt.setText(String.valueOf(g.getWORKHOURS()));
             Birthtxt.setText(g.getBirthdate());
 
         }
@@ -237,17 +232,17 @@ public class Show_guestsController implements Initializable {
 
     public void referachTable() throws SQLException {
 
-        rs = statement.executeQuery("select * from Guest");
+        rs = statement.executeQuery("select * from EMPLOYEE");
         while (rs.next()) {
-            Guest guest = new Guest();
-            String adf = String.valueOf(rs.getInt("ID"));
-            guest.setID(adf);
-            guest.setName(rs.getString("Name"));
-            guest.setBirthdate(rs.getString("Birthdate"));
-            guest.setAddress(rs.getString("Address"));
-            guest.setGender(rs.getString("Gender"));
-            guest.setPhoneNumber(rs.getString("PhoneNumber"));
-            Tabelview.getItems().add(guest);
+            Employee employee = new Employee();
+            String adf = String.valueOf(rs.getInt("E_ID"));
+            employee.setID(adf);
+            employee.setUserName(rs.getString("UserName"));
+            employee.setBirthdate(rs.getString("BIRTHDAY"));
+            employee.setPassword(rs.getString("Password"));
+            employee.setWORKHOURS(rs.getInt("WORKHOURS"));
+            employee.setPhoneNumber(rs.getString("PHONENUMBER"));
+            Tabelview.getItems().add(employee);
 
         }
     }

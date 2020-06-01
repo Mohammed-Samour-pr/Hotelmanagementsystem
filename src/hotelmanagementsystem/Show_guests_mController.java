@@ -16,8 +16,6 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +24,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,7 +37,7 @@ import javax.swing.JOptionPane;
  *
  * @author Mohammed2
  */
-public class Show_guestsController implements Initializable {
+public class Show_guests_mController implements Initializable {
 
     @FXML
     private TableColumn<Guest, Integer> tcid;
@@ -134,11 +131,6 @@ public class Show_guestsController implements Initializable {
         Tabelview.getSelectionModel().selectedItemProperty().addListener(
                 event -> showSelected()
         );
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss a");
-        String formattedDate = myDateObj.format(myFormatObj);
-        NameE.setText(Employee.Ename);
-        Time.setText(formattedDate);
 
     }
 

@@ -23,11 +23,10 @@ public class Hotelmanagementsystem extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Pane paneTableView = FXMLLoader.load(getClass().getResource("Show_guests.fxml"));
+        Pane paneTableView = FXMLLoader.load(getClass().getResource("Start.fxml"));
         Scene scene = new Scene(paneTableView);
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) throws IOException {

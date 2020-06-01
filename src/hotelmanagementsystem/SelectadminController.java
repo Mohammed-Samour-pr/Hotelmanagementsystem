@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -22,25 +21,20 @@ import javafx.stage.Stage;
  *
  * @author Mohammed2
  */
-public class Select_UserController implements Initializable {
-
-    @FXML
-    private Button admin;
-    @FXML
-    private Button user;
+public class SelectadminController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }
 
     @FXML
-    private void admin_n(ActionEvent event) {
+    private void Manger(ActionEvent event) {
         try {
-            Parent blah = FXMLLoader.load(getClass().getResource("Manger_System.fxml"));
+            Parent blah = FXMLLoader.load(getClass().getResource("Select_User.fxml"));
             Scene scene = new Scene(blah);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
@@ -51,9 +45,22 @@ public class Select_UserController implements Initializable {
     }
 
     @FXML
-    private void user_n(ActionEvent event) {
+    private void Emp(ActionEvent event) {
         try {
-            Parent blah = FXMLLoader.load(getClass().getResource("R1.fxml"));
+            Parent blah = FXMLLoader.load(getClass().getResource("Login_Employee.fxml"));
+            Scene scene = new Scene(blah);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void cancel(ActionEvent event) {
+        try {
+            Parent blah = FXMLLoader.load(getClass().getResource("Select_User.fxml"));
             Scene scene = new Scene(blah);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);

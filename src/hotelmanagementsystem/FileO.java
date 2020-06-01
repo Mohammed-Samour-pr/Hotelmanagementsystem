@@ -28,12 +28,12 @@ import javafx.stage.Stage;
  */
 public class FileO {
 
-    public void PrintFile(String s) throws FileNotFoundException, IOException {
+    public static void PrintFile(String s) throws FileNotFoundException, IOException {
         LocalDateTime myDateObj = LocalDateTime.now();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss a");
         String formattedDate = myDateObj.format(myFormatObj);
-        File f = new File("Hestory.txt");
-        FileOutputStream fos = new FileOutputStream(f);
+        File f = new File("LogoFile.txt");
+        FileOutputStream fos = new FileOutputStream(f,true);
         OutputStreamWriter osw = new OutputStreamWriter(fos);
         PrintWriter pw = new PrintWriter(fos);
         pw.println(s + "  Time " + formattedDate);

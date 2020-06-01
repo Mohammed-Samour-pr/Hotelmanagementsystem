@@ -10,10 +10,40 @@ package hotelmanagementsystem;
  */
 public class Guest {
 
+  
     Bill b = new Bill();
     Integer id;
+      String ID;
     String gender;//******************************************//**/*/*
-    String name, phone, address, birthday;
+    String name, phone;
+    String address;
+    String birthday;
+    String PhoneNumber;
+    String Birthdate;
+
+    public String getBirthdate() {
+        return Birthdate;
+    }
+
+    public void setBirthdate(String Birthdate) {
+        this.Birthdate = Birthdate;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String PhoneNumber) {
+        this.PhoneNumber = PhoneNumber;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public Guest(String name, int id, String phone, String address, String birthday, String gender) {
         this.name = name;

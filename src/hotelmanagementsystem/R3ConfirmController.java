@@ -5,6 +5,7 @@
  */
 package hotelmanagementsystem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -109,7 +110,7 @@ public class R3ConfirmController implements Initializable {
     PreparedStatement pst = null;
 
     @FXML
-    private void save(ActionEvent event) {
+    private void save(ActionEvent event) throws IOException {
         // TODO add your handling code here:
         Connection con = null;
         con = db.java_db();
@@ -118,7 +119,6 @@ public class R3ConfirmController implements Initializable {
 
             Guest newGuest = GlobalVariable.guest;
             String sql = "INSERT INTO Guest(Name , Address ,PhoneNumber ,Birthdate ,Gender ) values (?,?,?,?,?)";
-
             pst = con.prepareStatement(sql);
             System.out.println(newGuest.name);
             pst.setString(1, newGuest.name);
@@ -126,7 +126,6 @@ public class R3ConfirmController implements Initializable {
             pst.setString(3, newGuest.phone);
             pst.setString(4, newGuest.birthday);
             pst.setString(5, newGuest.gender);
-
             pst.execute();
 
             PreparedStatement ps = con
@@ -146,6 +145,7 @@ public class R3ConfirmController implements Initializable {
             Reservation reservation = GlobalVariable.reservation;
             String sql = "INSERT INTO Reservation(WithChildren , Branch ,CheckInDate ,CheckOutDate ,NumberOfRooms,NumberOfGuest,NumberOfDay,Breakfast,Activity,roomType,roomNumber,GuestID )"
                     + " values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            FileO.PrintFile(sql);
             pst = con.prepareStatement(sql);
             pst.setInt(1, reservation.withchildren);
             pst.setString(2, reservation.branch);

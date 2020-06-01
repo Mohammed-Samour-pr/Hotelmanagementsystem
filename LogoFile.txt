@@ -1,0 +1,2 @@
+update Guest set Name='mmm', Address='999889', PhoneNumber='059233654845',Birthdate='2020-05-31',Gender='Female' where id='5'   Time 01-06-2020 22:25:44 م
+INSERT INTO Guest(Name , Address ,PhoneNumber ,Birthdate ,Gender ) values (?,?,?,?,?)  Time 01-06-2020 22:26:38 م
